@@ -24,7 +24,8 @@ WHERE
 ;
 
 SELECT
-    bks.Title
+    lns. LoanID
+  , bks.Title
   , bks.Barcode
   , lns.ReturnedDate
 FROM
@@ -44,18 +45,8 @@ ORDER BY ReturnedDate DESC
 UPDATE Loans
 SET
   ReturnedDate = '2022-07-05'
-FROM
-  Books bks
-  JOIN Loans lns
-    ON bks.BookID = lns.BookID
 WHERE
-  bks.Barcode IN
-    (
-      6435968624
-    , 5677520613
-    , 8730298424
-    )
-  AND lns.ReturnedDate IS NULL
+  LoanID IN(1991, 1992, 1999)
 ;
 
 SELECT
@@ -2192,3 +2183,7 @@ WHERE
   ReturnedDate = '2022-07-05'
 ORDER BY ReturnedDate DESC
 ;
+
+UPDATE Loans
+SET ReturnedDate = NULL
+WHERE LoanID IN(2002,2001);

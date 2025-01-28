@@ -8,6 +8,7 @@ SELECT
   , bks.Title
   , pat.FirstName
   , pat.Email
+  , lns.ReturnedDate
 FROM
   Patrons pat
   JOIN Loans lns
